@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe "validation" do
-    let(:user) { User.new(first_name: "Bob", last_name: "Page", email: "example@example.com") }
+    let(:user) { build(:user) }
 
     it "must have a first name" do
       user.first_name = nil
