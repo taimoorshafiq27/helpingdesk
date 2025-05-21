@@ -27,6 +27,6 @@ RSpec.describe Role, type: :model do
     role.code = "ABCD"
     role.valid?
 
-    expect(role.errors[:code]).to include("is too long (maximum is 3 characters)")
+    expect(role.errors[:code]).to include("is the wrong length (should be 3 characters)")
   end
 end
