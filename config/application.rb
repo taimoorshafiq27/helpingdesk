@@ -6,7 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Resolveit
+module Helpingdesk
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
@@ -23,5 +23,10 @@ module Resolveit
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    #
+    # Generate RSpec test files instead of minitest files when a generator is run
+    config.generators do |g|
+      g.test_framework :rspec
+    end
   end
 end
