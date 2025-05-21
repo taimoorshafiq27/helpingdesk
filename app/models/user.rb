@@ -8,4 +8,10 @@ class User < ApplicationRecord
 
   has_many :user_roles
   has_many :roles, through: :user_roles
+
+  private
+
+  def administrator?
+    roles.exists?(name: "Administrator")
+  end
 end
