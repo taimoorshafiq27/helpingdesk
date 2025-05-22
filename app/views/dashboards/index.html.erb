@@ -1,23 +1,27 @@
-<% if current_user %>
-    <%= button_to "Log out", destroy_user_session_path, method: :delete %>
-<% end %>
+<%# <% if current_user&.administrator? %>
+    <%#= button_to "Admin", admin_screens_path %>
+<%# end %>
 
-<% if current_user&.administrator? %>
-    <%= button_to "Admin", admin_screens_path %>
-<% end %>
-
-<div class="flex min-h-screen bg-gray-50">
-<aside class="w-64 border-solid border-r-2 border-black flex flex-col">
-  <h1 class="py-8 px-6 text-2xl">HelpingDesk</h1>
-  <div class="flex flex-col text-lg flex-grow">
-    <%= link_to "Dashboard", root_path, class: "py-2 px-6 w-full #{current_page?(root_path) ? 'bg-sky-500 text-white' : 'text-sky-700 hover:bg-sky-100'}" %>
-    <%= link_to "Tickets", "#", class: "py-2 px-6 w-full text-sky-700 hover:bg-sky-100" %>
-    <%= link_to "Reports", "#", class: "py-2 px-6 w-full text-sky-700 hover:bg-sky-100" %>
-    <%= link_to "Logout", "#", class: "py-2 px-6 w-full text-sky-700 hover:bg-sky-100" %>
-    <%= link_to "Admin", "#", class: "py-2 px-6 w-full text-sky-700 hover:bg-sky-100 mt-auto pb-64" %>
-  </div>
-</aside>
-    <div class="">
-        Main content
+<div class="flex min-h-screen bg-gray-200">
+    <%= render partial: "shared/menu" %>
+    <div class="w-full">
+        <div class="flex py-6 px-6 bg-white">
+            <h1 class="flex-1">Dashboard</h1>
+            <div class="flex items-center ml-auto space-x-2 pr-10">
+                <i class="fa-solid fa-user"></i>
+                <%= link_to "My account", user_path(current_user) %>
+            </div>
+            <% if current_user %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "px-2 py-1 rounded bg-red-500 text-white hover:bg-red-600" %>
+            <% end %>
+        </div>
+        <div class="grid grid-cols-3 gap-4 px-6 py-6">
+            <div class="h-64 bg-sky-600">column 1</div>
+            <div class="bg-sky-600">column 2</div>
+            <div class="h-64 bg-sky-600">column 3</div>
+            <div class="bg-sky-600">column 4</div>
+             <div class="bg-sky-600">column 5</div>
+            <div class="bg-sky-600">column 6</div>
+        </div>
     </div>
 </div>
