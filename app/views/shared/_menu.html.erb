@@ -1,0 +1,21 @@
+<aside class="w-80 border-solid border-r-2 bg-white border-black flex flex-col">
+    <h1 class="font-sans py-6 px-8 text-2xl text-black">HelpingDesk</h1>
+    <div class="flex flex-col text-md">
+        <div class="flex items-center py-3 px-8 w-full <%= current_page?(root_path) ? '' : 'hover:bg-sky-100' %>">
+            <i class="fa-solid fa-gauge"></i>
+            <%= link_to "Dashboard", root_path, class: "px-8 w-full #{current_page?(root_path) ? 'bg-gradient-to-r from-white to-sky-600 rounded' : 'text-black hover:bg-sky-100'}" %>
+        </div>
+        <div class="flex items-center py-3 px-8 w-full hover:bg-sky-100">
+            <i class="fa-solid fa-ticket"></i>
+            <%= link_to "Tickets", "#", class: "px-8 w-full hover:bg-sky-100" %>
+        </div>
+        <div class="flex items-center py-3 px-8 w-full hover:bg-sky-100">
+            <i class="fa-solid fa-file"></i>
+            <%= link_to "Reports", "#", class: "px-8 w-full hover:bg-sky-100" %>
+        </div>
+        <div class="flex items-center py-3 px-8 w-full hover:bg-sky-100">
+            <i class="fa-solid fa-user-tie"></i>
+            <%= link_to "Admin", "#", class: "px-8 w-full hover:bg-sky-100" %>
+        </div>
+    </div>
+</aside>

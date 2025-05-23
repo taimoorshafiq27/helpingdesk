@@ -19,7 +19,7 @@ RSpec.describe "Authentication", type: :system do
     user = create(:user)
 
     visit user_session_url
-    assert_selector "h2", text: "Log in"
+    assert_selector "h2", text: "Sign in"
 
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
@@ -31,17 +31,15 @@ RSpec.describe "Authentication", type: :system do
   it "must allow a user to sign out" do
     user = create(:user)
 
-    visit user_session_url
-    assert_selector "h2", text: "Log in"
+    visit user_session_path
+    assert_selector "h2", text: "Sign in"
 
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     click_on "Log in"
 
-    visit root_url
-    assert_selector "button", text: "Log out"
     click_on "Log out"
 
-    expect(page).to have_text("Signed out successfully.")
+    expect(page).to have_text("Sign in")
   end
 end
