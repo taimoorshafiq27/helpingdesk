@@ -70,6 +70,10 @@ RSpec.configure do |config|
   # 
   config.include FactoryBot::Syntax::Methods
 
+  Capybara.server_host = "127.0.0.1"
+  Capybara.server_port = 3001
+  Capybara.app_host = "http://127.0.0.1:3001"
+
   config.before(:each, type: :system) do
     driven_by :rack_test
   end
@@ -77,4 +81,6 @@ RSpec.configure do |config|
   config.before(:each, type: :system, js: true) do
     driven_by :selenium_chrome_headless
   end
+
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end
