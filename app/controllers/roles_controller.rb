@@ -12,7 +12,7 @@ class RolesController < ApplicationController
     @role = Role.new(role_params)
 
     if @role.save
-      redirect_to root_path
+      redirect_to admin_screens_path
     else
       render :new, status: :unprocessable_entity
     end
