@@ -1,6 +1,6 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.describe "Roles", type: :request do
+RSpec.describe "Tickets", type: :request do
   let(:user) { create(:user) }
 
   before do
@@ -9,7 +9,7 @@ RSpec.describe "Roles", type: :request do
 
   describe "index" do
     it "loads successfully" do
-      get roles_path
+      get tickets_path
 
       expect(response).to have_http_status(:ok)
     end
@@ -17,7 +17,7 @@ RSpec.describe "Roles", type: :request do
 
   describe "new" do
     it "loads successfully" do
-      get new_role_path
+      get new_ticket_path
 
       expect(response).to have_http_status(:ok)
     end
@@ -25,7 +25,7 @@ RSpec.describe "Roles", type: :request do
 
   describe "create" do
     it "saves successfully" do
-      post roles_path(role: attributes_for(:role))
+      post tickets_path(ticket: attributes_for(:ticket).merge(client_id: user.id))
 
       follow_redirect!
 
@@ -35,8 +35,8 @@ RSpec.describe "Roles", type: :request do
 
   describe "show" do
     it "loads successfully" do
-      role = create(:role)
-      get role_path(role)
+      ticket = create(:ticket, client: user)
+      get ticket_path(ticket)
 
       expect(response).to have_http_status(:ok)
     end
@@ -44,8 +44,8 @@ RSpec.describe "Roles", type: :request do
 
   describe "edit" do
     it "loads successfully" do
-      role = create(:role)
-      get edit_role_path(role)
+      ticket = create(:ticket, client: user)
+      get ticket_path(ticket)
 
       expect(response).to have_http_status(:ok)
     end
@@ -53,8 +53,8 @@ RSpec.describe "Roles", type: :request do
 
   describe "update" do
     it "updates successfully" do
-      role = create(:role)
-      patch role_path(role, params: { role: { name: "Admin" }} )
+      ticket = create(:ticket, client: user)
+      patch ticket_path(ticket, params: { ticket: { description: "Updated description" }} )
 
       follow_redirect!
 
@@ -64,8 +64,8 @@ RSpec.describe "Roles", type: :request do
 
   describe "destroy" do
     it "destroys successfully" do
-      role = create(:role)
-      delete role_path(role)
+      ticket = create(:ticket, client: user)
+      delete ticket_path(ticket)
 
       follow_redirect!
 
