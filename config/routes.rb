@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :roles
 
   resources :admin_screens, only: [:index]
+
+  resources :tickets
   
   get "up" => "rails/health#show", as: :rails_health_check
 
