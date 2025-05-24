@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :user_roles
   has_many :roles, through: :user_roles
+  has_many :client_tickets, class_name: "Ticket", foreign_key: "client_id"
+  has_many :assigned_tickets, class_name: "Ticket", foreign_key: "assignee_id"
 
   private
 
