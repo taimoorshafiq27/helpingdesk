@@ -5,8 +5,8 @@ class CreateTickets < ActiveRecord::Migration[7.1]
       t.references :assignee, type: :uuid, foreign_key: { to_table: :users }
       t.string :title
       t.string :description
-      t.string :category
-      t.string :status
+      t.integer :category
+      t.integer :status
 
       t.timestamps
     end

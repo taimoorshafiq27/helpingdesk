@@ -31,11 +31,19 @@ RSpec.describe Ticket, type: :model do
       expect(ticket.errors[:category]).to include("can't be blank")
     end
 
+    it "must have an integer type for category value" do
+      expect(Ticket.columns_hash["category"].type).to eq(:integer)
+    end
+
     it "must have a status" do
       ticket.status = nil
       ticket.valid?
 
       expect(ticket.errors[:status]).to include("can't be blank")
+    end
+
+    it "must have an integer type for status value" do
+      expect(Ticket.columns_hash["status"].type).to eq(:integer)
     end
   end
 end

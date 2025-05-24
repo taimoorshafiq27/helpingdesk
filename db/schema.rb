@@ -26,8 +26,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_24_062739) do
     t.uuid "assignee_id"
     t.string "title"
     t.string "description"
-    t.string "category"
-    t.string "status"
+    t.integer "category"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["assignee_id"], name: "index_tickets_on_assignee_id"
