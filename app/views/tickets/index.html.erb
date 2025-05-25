@@ -2,11 +2,13 @@
     <%= render MenuComponent.new %>
     <div class="w-full">
         <%= render ToolbarComponent.new(title: "Tickets") %>
-        <div class="py-6 px-24">
-          <%= link_to "New ticket", new_ticket_path, class: "px-2 py-1 rounded bg-sky-500 text-white hover:bg-sky-600" %>
-        </div>
-        <div class="px-24 py-6">
-          <%= render partial: "tickets" %>
+        <div class="w-3/5 m-auto px-6 rounded bg-white">
+          <div class="pt-4 pb-8">
+            <%= link_to "New ticket", new_ticket_path, class: "px-2 py-1 rounded bg-sky-500 text-white hover:bg-sky-600" %>
+          </div>
+          <div class="pb-4">
+            <%= render partial: "tickets" %>
+          </div>
         </div>
     </div>
 </div>
