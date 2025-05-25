@@ -1,0 +1,19 @@
+<div class="flex min-h-screen">
+  <%= render MenuComponent.new %>
+  <div class="w-full bg-gray-100">
+    <%= render ToolbarComponent.new(title: "Roles") %>
+    <div class="rounded bg-white">
+      <div class="py-6 px-24">
+          <%= link_to "New role", new_role_path, class: "px-2 py-1 rounded bg-sky-500 text-white hover:bg-sky-600" %>
+      </div>
+      <div class="py-6 px-24">
+          <% @roles.each do |role| %>
+            <div>
+              <%= link_to "#{role.name}", role_path(role), class: "text-blue-400 hover:text-blue-500 cursor-pointer" %>
+              <%= content_tag(:span, role.code, class: "text-xs") %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

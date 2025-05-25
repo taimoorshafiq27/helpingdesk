@@ -11,6 +11,18 @@ class User < ApplicationRecord
   has_many :client_tickets, class_name: "Ticket", foreign_key: "client_id"
   has_many :assigned_tickets, class_name: "Ticket", foreign_key: "assignee_id"
 
+  def update_role(role_id)
+    return true if role_id.blank?
+
+    transaction do
+      user_roles.destroy_all
+      user_roles.create!(role_id: role_id)
+    end
+    true
+  rescue ActiveRecord::RecordInvalid
+    false
+  end
+
   private
 
   def administrator?
