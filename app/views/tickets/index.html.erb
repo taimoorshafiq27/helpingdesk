@@ -1,0 +1,14 @@
+<div class="flex min-h-screen bg-gray-100">
+    <%= render MenuComponent.new %>
+    <div class="w-full">
+        <%= render ToolbarComponent.new(title: "Tickets") %>
+        <div class="w-3/5 m-auto px-6 rounded bg-white">
+          <div class="pt-4 pb-8">
+            <%= link_to "New ticket", new_ticket_path, class: "px-2 py-1 rounded bg-sky-500 text-white hover:bg-sky-600" %>
+          </div>
+          <div class="pb-4">
+            <%= render partial: "tickets" %>
+          </div>
+        </div>
+    </div>
+</div>

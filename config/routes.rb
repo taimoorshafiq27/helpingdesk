@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users, only: [:show]
+  resources :users, only: [:index, :show, :edit, :update]
 
   resources :roles
 
-  resources :admin_screens, only: [:index]
+  resources :tickets
   
   get "up" => "rails/health#show", as: :rails_health_check
 

@@ -1,0 +1,26 @@
+<aside class="w-80 border-solid border-r-2 bg-white border-black flex flex-col">
+    <h1 class="font-sans py-6 px-8 text-2xl bg-black text-white">HelpingDesk</h1>
+    <div class="flex flex-col pt-4 text-md">
+        <div class="flex items-center py-3 px-8 w-full space-x-3.5 <%= current_page?(root_path) ? '' : 'hover:bg-sky-100' %>">
+            <i class="fa-solid fa-gauge"></i>
+            <%= link_to "Dashboard", root_path, class: "#{current_page?(root_path) ? 'pr-24 bg-gradient-to-r from-white to-sky-600 rounded' : 'text-black hover:bg-sky-100'}" %>
+        </div>
+        <div class="flex items-center py-3 px-8 w-full space-x-3 <%= current_page?(tickets_path) ? '' : 'hover:bg-sky-100' %>">
+            <i class="fa-solid fa-ticket"></i>
+            <%= link_to "Tickets", tickets_path, class: "#{current_page?(tickets_path) ? 'pr-30 bg-gradient-to-r from-white to-sky-600 rounded' : 'text-black hover:bg-sky-100'}" %>
+        </div>
+        <div class="flex items-center py-3 px-8 w-full hover:bg-sky-100 space-x-4.5">
+            <i class="fa-solid fa-file"></i>
+            <p class="hover:bg-sky-100">Reports</p>
+            <p class="text-sm text-gray-500">Coming soon!</p>
+        </div>
+        <div class="flex items-center py-3 px-8 w-full space-x-4 <%= current_page?(roles_path) ? '' : 'hover:bg-sky-100' %>">
+            <i class="fa-solid fa-user-tie"></i>
+            <%= link_to "Roles", roles_path, class: "hover:bg-sky-100 #{current_page?(roles_path) ? 'pr-30 bg-gradient-to-r from-white to-sky-600 rounded' : 'text-black hover:bg-sky-100'}" %>
+        </div>
+        <div class="flex items-center py-3 px-8 w-full space-x-2.5 <%= current_page?(users_path) ? '' : 'hover:bg-sky-100' %>">
+            <i class="fa-solid fa-users"></i>
+        <%= link_to "Users", users_path, class: "hover:bg-sky-100 #{current_page?(users_path) ? 'pr-30 bg-gradient-to-r from-white to-sky-600 rounded' : 'text-black hover:bg-sky-100'}" %>
+        </div>
+    </div>
+</aside>

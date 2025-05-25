@@ -1,0 +1,9 @@
+<div class="flex min-h-screen">
+  <%= render MenuComponent.new %>
+  <div class="w-full bg-gray-100">
+    <%= render ToolbarComponent.new(title: "Users") %>
+        <div>
+            <%= render partial: "form" %>
+        </div>
+  </div>
+</div>

@@ -1,3 +1,6 @@
-<div class="flex min-h-screen bg-gray-200">
-    <%= render partial: "shared/menu" %>
+<div class="flex min-h-screen bg-gray-100">
+    <%= render MenuComponent.new %>
+        <div class="w-full">
+        <%= render ToolbarComponent.new(title: "Profile") %>
+    </div>
 </div>

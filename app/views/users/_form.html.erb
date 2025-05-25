@@ -1,0 +1,6 @@
+<%= form_with model: @user do |form| %>
+    <%= form.label :role_id %>
+    <%= form.collection_select :role_id, Role.all, :id, :name,{ prompt: "Select one role" } %>
+
+    <%= form.submit "Update user" %>
+<% end %>

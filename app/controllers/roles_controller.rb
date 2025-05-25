@@ -12,20 +12,19 @@ class RolesController < ApplicationController
     @role = Role.new(role_params)
 
     if @role.save
-      redirect_to root_path
+      redirect_to roles_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def show
-  end
+  def show; end
 
   def edit; end
 
   def update
     if @role.update(role_params)
-      redirect_to root_path
+      redirect_to roles_path
     else
       render :edit, status: :unprocessable_entity
     end
