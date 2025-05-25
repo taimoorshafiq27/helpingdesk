@@ -6,10 +6,13 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new
+    @user_role = current_user.roles.first
   end
 
   def create
     @ticket = Ticket.new(ticket_params)
+
+    @ticket.client = current_user if current_user.client?
 
     if @ticket.save
       redirect_to root_path

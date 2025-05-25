@@ -23,6 +23,18 @@ class User < ApplicationRecord
     false
   end
 
+  def admin?
+    roles.exists?(code: "ADM")
+  end
+
+  def agent?
+    roles.exists?(code: "AGT")
+  end
+
+  def client?
+    roles.exists?(code: "CLT")
+  end
+
   private
 
   def administrator?
