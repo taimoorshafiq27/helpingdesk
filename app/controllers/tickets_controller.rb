@@ -41,7 +41,7 @@ class TicketsController < ApplicationController
   private
 
   def set_tickets
-    @tickets = Ticket.all
+    @pagy, @tickets = pagy(Ticket.all)
   end
 
   def set_ticket

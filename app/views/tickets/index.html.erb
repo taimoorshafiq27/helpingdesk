@@ -8,6 +8,9 @@
           </div>
           <div class="pb-4">
             <%= render partial: "tickets" %>
+            <div class="pt-4">
+              <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+            </div>
           </div>
         </div>
     </div>
