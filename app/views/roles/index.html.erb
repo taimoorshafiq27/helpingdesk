@@ -8,9 +8,14 @@
       </div>
       <div class="pb-4">
           <% @roles.each do |role| %>
-            <div class="pb-2">
-              <%= link_to "#{role.name}", role_path(role), class: "text-blue-400 hover:text-blue-500 cursor-pointer" %>
-              <%= content_tag(:span, role.code, class: "text-xs") %>
+            <div class="flex justify-between pb-8">
+              <div>
+                <%= content_tag(:span, role.name, class: "") %>
+                <%= content_tag(:span, role.code, class: "text-xs text-gray-500") %>
+              </div>
+              <div>
+                <%= link_to "Edit role", edit_role_path(role), class: "ml-8 py-2 px-3 text-sm rounded bg-gray-100 hover:bg-gray-200" %>
+              </div>
             </div>
           <% end %>
       </div>
