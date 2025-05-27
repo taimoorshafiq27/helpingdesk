@@ -2,11 +2,11 @@
   <%= render MenuComponent.new %>
   <div class="w-full bg-gray-100">
     <%= render ToolbarComponent.new(title: "Users") %>
-    <div class="rounded bg-white">
-      <div class="py-6 px-24">
+    <div class="w-3/5 m-auto px-6 rounded bg-white">
+      <div class="py-6">
           <% @users.each do |user| %>
-            <div>
-              <%= user.first_name %>
+            <div class="flex justify-between pb-8">
+              <%= "#{user.first_name} #{user.last_name}" %>
               <%= link_to "Edit user", edit_user_path(user), class: "ml-8 py-2 px-3 text-sm rounded bg-gray-100 hover:bg-gray-200" %>
             </div>
           <% end %>
