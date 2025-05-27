@@ -1,5 +1,4 @@
 class RolesController < ApplicationController
-  # before_action :set_authorization, only: [:index]
   before_action :set_roles, only: [:index]
   before_action :set_role, only: [:show, :edit, :update, :destroy]
 
@@ -9,10 +8,12 @@ class RolesController < ApplicationController
 
   def new
     @role = Role.new
+    authorize @role
   end
 
   def create
     @role = Role.new(role_params)
+    authorize @role
 
     if @role.save
       redirect_to roles_path
@@ -21,11 +22,17 @@ class RolesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    authorize @role
+  end
 
-  def edit; end
+  def edit
+    authorize @role
+  end
 
   def update
+    authorize @role
+
     if @role.update(role_params)
       redirect_to roles_path
     else
@@ -34,15 +41,13 @@ class RolesController < ApplicationController
   end
 
   def destroy
+    authorize @role
+
     @role.destroy
     redirect_to roles_path
   end
 
   private
-
-  def set_authorization
-    authorize @role
-  end
 
   def set_roles
     @roles = Role.all
