@@ -1,9 +1,11 @@
 require "rails_helper"
 
 RSpec.describe "Roles", type: :request do
+  let(:role) { create(:role) }
   let(:user) { create(:user) }
 
   before do
+    user.roles << role
     sign_in user
   end
 

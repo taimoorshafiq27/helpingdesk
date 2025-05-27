@@ -2,13 +2,20 @@ class UsersController < ApplicationController
   before_action :set_users, only: [:index]
   before_action :set_user, only: [:show, :edit, :update]
 
-  def index; end
+  def index
+    authorize User
+  end
 
-  def show; end
+  def show
+    authorize @user
+  end
 
-  def edit; end
+  def edit
+    authorize @user
+  end
 
   def update
+    authorize @user
     if @user.update_role(params[:user][:role_id])
       redirect_to root_path
     else
