@@ -11,7 +11,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    user?
+    user
   end
 
   def edit?
