@@ -14,10 +14,12 @@
             <p class="hover:bg-sky-100">Reports</p>
             <p class="text-sm text-gray-500">Coming soon!</p>
         </div>
+        <% if current_user.admin? or current_user.agent? %>
         <div class="flex items-center py-3 px-8 w-full space-x-4 <%= current_page?(roles_path) ? '' : 'hover:bg-sky-100' %>">
             <i class="fa-solid fa-user-tie"></i>
             <%= link_to "Roles", roles_path, class: "hover:bg-sky-100 #{current_page?(roles_path) ? 'pr-30 bg-gradient-to-r from-white to-sky-600 rounded' : 'text-black hover:bg-sky-100'}" %>
         </div>
+        <% end %>
         <div class="flex items-center py-3 px-8 w-full space-x-2.5 <%= current_page?(users_path) ? '' : 'hover:bg-sky-100' %>">
             <i class="fa-solid fa-users"></i>
         <%= link_to "Users", users_path, class: "hover:bg-sky-100 #{current_page?(users_path) ? 'pr-30 bg-gradient-to-r from-white to-sky-600 rounded' : 'text-black hover:bg-sky-100'}" %>
