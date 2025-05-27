@@ -4,8 +4,10 @@ Rails.application.routes.draw do
 
   resources :roles
 
-  resources :tickets
-  
+  resources :tickets do
+    resources :comments, only: [:new, :create]
+  end
+
   get "up" => "rails/health#show", as: :rails_health_check
 
   root "dashboards#index"
