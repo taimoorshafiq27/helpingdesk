@@ -2,8 +2,10 @@
 <%= form_with model: @ticket do |form| %>
     <div class="flex flex-col pb-6">
         <% if current_user.admin? || current_user.agent? %>
-            <%= form.label :assignee_id, "Agent", class: "pb-1" %>
-            <%= form.collection_select :assignee_id, User.where(id: User.all.select { |user| user.admin? || user.agent? }), :id, :first_name, { prompt: "" }, class: "py-1 rounded border border-gray-300 border focus:outline-sky-600" %>
+            <div class="flex flex-col pb-6">
+                <%= form.label :assignee_id, "Agent", class: "pb-1" %>
+                <%= form.collection_select :assignee_id, User.where(id: User.all.select { |user| user.admin? || user.agent? }), :id, :first_name, { prompt: "" }, class: "py-1 rounded border border-gray-300 border focus:outline-sky-600" %>
+            </div>
             <%= form.label :client_id, "Client", class: "pb-1" %>
             <%= form.collection_select :client_id, User.where(id: User.all.select { |user| user.client? }), :id, :first_name, { prompt: "" }, class: "py-1 rounded border border-gray-300 border focus:outline-sky-600" %>
         <% elsif current_user.client? %>
@@ -28,9 +30,6 @@
         <%= form.label :status, class: "pb-1" %>
         <%= form.collection_select :status, Ticket.statuses.keys, :to_s, :humanize, { prompt: "" }, class: "py-1 rounded border-solid border-gray-300 border focus:outline-sky-600" %>
     </div>
-    <%# if current_user == admin? %>
-        <%#= form.text_field :assignee_id %>
-    <%# end %>
     <div>
         <%= form.submit class: "px-2 py-1 rounded bg-sky-500 text-white hover:bg-sky-600" %>
     </div>
