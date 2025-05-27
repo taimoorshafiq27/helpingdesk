@@ -17,6 +17,12 @@ client_user = User.create!(first_name: "Alice", last_name: "Walker", email: "cli
 admin_user.roles << admin_role
 client_user.roles << client_role
 
-15.times do |n|
-  Ticket.create!(assignee: admin_user, client: client_user, title: "Ticket #{n + 1}", description: "This is a seeded description for a ticket.", category: :email, status: :open)
+15.times do
+  Ticket.create!(
+    assignee: admin_user,
+    client: client_user,
+    title: Faker::Book.title,
+    description: Faker::Quote.famous_last_words + " " * 15,
+    category: :email,
+    status: :open)
 end

@@ -41,7 +41,7 @@ class TicketsController < ApplicationController
   private
 
   def set_tickets
-    @pagy, @tickets = pagy(Ticket.all)
+    @pagy, @tickets = pagy(Ticket.all.order(created_at: :desc))
   end
 
   def set_ticket

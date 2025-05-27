@@ -1,16 +1,21 @@
-<div class="flex min-h-screen">
+<div class="flex min-h-screen bg-gray-100">
   <%= render MenuComponent.new %>
-  <div class="w-full bg-gray-100">
+  <div class="w-full">
     <%= render ToolbarComponent.new(title: "Roles") %>
-    <div class="rounded bg-white">
-      <div class="py-6 px-24">
+    <div class="w-3/5 m-auto px-6 rounded bg-white">
+      <div class="pt-4 pb-8">
           <%= link_to "New role", new_role_path, class: "px-2 py-1 rounded bg-sky-500 text-white hover:bg-sky-600" %>
       </div>
-      <div class="py-6 px-24">
+      <div class="pb-4">
           <% @roles.each do |role| %>
-            <div>
-              <%= link_to "#{role.name}", role_path(role), class: "text-blue-400 hover:text-blue-500 cursor-pointer" %>
-              <%= content_tag(:span, role.code, class: "text-xs") %>
+            <div class="flex justify-between pb-8">
+              <div>
+                <%= content_tag(:span, role.name, class: "") %>
+                <%= content_tag(:span, role.code, class: "text-xs text-gray-500") %>
+              </div>
+              <div>
+                <%= link_to "Edit role", edit_role_path(role), class: "ml-8 py-2 px-3 text-sm rounded bg-gray-100 hover:bg-gray-200" %>
+              </div>
             </div>
           <% end %>
       </div>

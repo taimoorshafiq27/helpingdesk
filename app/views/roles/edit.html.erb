@@ -1,0 +1,9 @@
+<div class="flex min-h-screen bg-gray-100">
+  <%= render MenuComponent.new %>
+  <div class="w-full">
+    <%= render ToolbarComponent.new(title: "Roles") %>
+    <div class="w-3/5 m-auto px-6 rounded bg-white">
+        <%= render partial: "form" %>
+    </div>
+  </div>
+</div>
