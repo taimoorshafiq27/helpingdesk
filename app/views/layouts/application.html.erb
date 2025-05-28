@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>HelpingDesk</title>
+    <%= favicon_link_tag asset_path('ticket-solid.svg') %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,8 +14,8 @@
 
   <body>
     <main>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <div class="notice text-black bg-sky-500"><%= notice %></div>
+      <div class="alert text-black bg-sky-500"><%= alert %></div>
       <%= yield %>
     </main>
   </body>
