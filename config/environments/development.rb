@@ -82,6 +82,7 @@ Rails.application.configure do
     address: 'localhost',
     port: 1025
   }
+  # MailCatcher port is 1080
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 end
