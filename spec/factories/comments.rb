@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :comment do
-    body { "MyString" }
-    ticket { nil }
+    user { association :user }
+    ticket { association :ticket }
+    body { Faker::Marketing }
   end
 end
