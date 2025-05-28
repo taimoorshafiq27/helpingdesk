@@ -21,7 +21,9 @@ class TicketsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @comment = @ticket.comments.build
+  end
 
   def edit; end
 
@@ -49,6 +51,6 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params.require(:ticket).permit(:client_id, :assignee_id, :title, :description, :category, :status)
+    params.require(:ticket).permit(:client_id, :assignee_id, :title, :description, :category, :status, comment_attributes: [:id, :body])
   end
 end

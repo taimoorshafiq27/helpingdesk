@@ -1,26 +1,47 @@
 <div class="flex min-h-screen bg-gray-100">
     <%= render MenuComponent.new %>
     <div class="w-full">
-        <%= render ToolbarComponent.new(title: "Tickets") %>
-    <div class="w-3/5 m-auto py-8 px-6 rounded bg-white">
-      <div>
-        <p class="pb-2 text-3xl"><%= @ticket.title %></p>
-        <p class="pb-8"><%= @ticket.description %></p>
+      <%= render ToolbarComponent.new(title: "Tickets") %>
+      <div class="w-3/5 m-auto py-8 px-6 rounded bg-white">
+        <div>
+          <p class="pb-2 text-3xl"><%= @ticket.title %></p>
+          <p class="pb-8"><%= @ticket.description %></p>
+        </div>
+        <% if current_user.admin? || current_user.agent?  %>
+          <%= form_with model: @ticket do |form| %>
+            <div class="flex flex-col pb-6">
+              <%= form.label :status, class: "pb-1" %>
+              <%= form.collection_select :status, Ticket.statuses.keys, :to_s, :humanize, { prompt: "" }, class: "py-1 rounded border-solid border-gray-300 border focus:outline-sky-600" %>
+            </div>
+            <div>
+                <%= form.submit class: "px-2 py-1 rounded bg-sky-500 text-white hover:bg-sky-600 hover:cursor-pointer" %>
+            </div>
+          <% end %>
+        <% else %>
+          <p><%= "Client: #{@ticket.client.first_name} #{@ticket.client.last_name}" %></p>
+          <p><%= "Category: #{@ticket.category}" %></p>
+          <p><%= "Status: #{@ticket.status}" %></p>
+        <% end %>
       </div>
-      <% if current_user.admin? || current_user.agent?  %>
-        <%= form_with model: @ticket do |form| %>
+      <% if @ticket.comments.present? %>
+        <div class="w-3/5 m-auto mt-8 py-4 px-6 rounded bg-white">
+          <% @ticket.comments.where.not(id: nil).each do |comment| %>
+            <p class="py-1"><%= comment.body %></p>
+            <div class="pb-12 text-gray-600 mt-2">
+              <h2 class="pr-1 text-sm">Commenter: <%= "#{comment.user.first_name} #{comment.user.last_name} (#{comment.user.roles.first.name}) "%></h2>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="w-3/5 m-auto mt-8 py-4 px-6 rounded bg-white">
+        <%= form_with model: [@ticket, @comment] do |form| %>
           <div class="flex flex-col pb-6">
-            <%= form.label :status, class: "pb-1" %>
-            <%= form.collection_select :status, Ticket.statuses.keys, :to_s, :humanize, { prompt: "" }, class: "py-1 rounded border-solid border-gray-300 border focus:outline-sky-600" %>
+            <%= form.text_area :body, class: "pt-1 rounded border-solid border-gray-300 border focus:outline-sky-600" %>
           </div>
           <div>
-              <%= form.submit class: "px-2 py-1 rounded bg-sky-500 text-white hover:bg-sky-600" %>
+            <%= form.submit "Add comment", class: "px-2 py-1 rounded bg-sky-500 text-white hover:bg-sky-600 hover:cursor-pointer" %>
           </div>
         <% end %>
-      <% else %>
-        <p><%= "Client: #{@ticket.client.first_name} #{@ticket.client.last_name}" %></p>
-        <p><%= "Category: #{@ticket.category}" %></p>
-        <p><%= "Status: #{@ticket.status}" %></p>
-      <% end %>
+      </div>
     </div>
 </div>

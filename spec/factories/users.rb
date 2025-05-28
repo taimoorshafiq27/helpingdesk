@@ -5,5 +5,11 @@ FactoryBot.define do
     email { "example@example.com" }
     password { "password" }
     password_confirmation { "password" }
+
+    trait :assign_role do
+      after(:create) do |user|
+        user.roles << create(:role)
+      end
+    end
   end
 end

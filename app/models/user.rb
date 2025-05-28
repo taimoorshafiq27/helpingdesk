@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :roles, through: :user_roles
   has_many :client_tickets, class_name: "Ticket", foreign_key: "client_id"
   has_many :assigned_tickets, class_name: "Ticket", foreign_key: "assignee_id"
+  has_many :comments
 
   def update_role(role_id)
     return true if role_id.blank?
