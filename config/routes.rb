@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :roles
 
   resources :tickets do
-    resources :comments, only: [:new, :create]
+    resources :comments, only: [:create]
   end
 
   get "up" => "rails/health#show", as: :rails_health_check
