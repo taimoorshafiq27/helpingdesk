@@ -11,5 +11,11 @@ FactoryBot.define do
         user.roles << create(:role)
       end
     end
+
+    trait :assign_client_role do
+      after(:create) do |user|
+        user.roles << create(:role, :client)
+      end
+    end
   end
 end
