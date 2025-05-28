@@ -1,17 +1,14 @@
 class CommentsController < ApplicationController
   before_action :set_ticket
 
-  def new
-    @comment = Comment.new
-  end
-
   def create
-    @comment = Comment.new(comment_params)
+    @comment = @ticket.comments.build(comment_params)
+    @comment.user = current_user
 
     if @comment.save
       redirect_to @ticket
     else
-      render :new, status: :unprocessable_entity
+      render "tickets/show", status: :unprocessable_entity
     end
   end
 
