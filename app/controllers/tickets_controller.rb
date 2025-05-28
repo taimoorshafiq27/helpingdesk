@@ -15,6 +15,7 @@ class TicketsController < ApplicationController
     @ticket.client = current_user if current_user.client?
 
     if @ticket.save
+      TicketMailer.ticket_creation_notification(@ticket.client, @ticket).deliver_later
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
