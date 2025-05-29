@@ -62,14 +62,15 @@ RSpec.describe "Tickets", type: :request do
     end
   end
 
-  describe "destroy" do
-    it "destroys successfully" do
-      ticket = create(:ticket, client: user)
-      delete ticket_path(ticket)
+  # NOTE: Currently do not have a destroy route. Comment out for now instead of removing
+  # describe "destroy" do
+  #   it "destroys successfully" do
+  #     ticket = create(:ticket, client: user)
+  #     delete ticket_path(ticket)
 
-      follow_redirect!
+  #     follow_redirect!
 
-      expect(response).to have_http_status(:ok)
-    end
-  end
+  #     expect(response).to have_http_status(:ok)
+  #   end
+  # end
 end
