@@ -25,8 +25,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_27_212311) do
   end
 
   create_table "roles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "name"
-    t.string "code"
+    t.string "name", null: false
+    t.string "code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,10 +34,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_27_212311) do
   create_table "tickets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "client_id"
     t.uuid "assignee_id"
-    t.string "title"
-    t.string "description"
-    t.integer "category"
-    t.integer "status"
+    t.string "title", null: false
+    t.string "description", default: "", null: false
+    t.integer "category", null: false
+    t.integer "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["assignee_id"], name: "index_tickets_on_assignee_id"
@@ -54,8 +54,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_27_212311) do
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.string "email", default: "", null: false
     t.string "phone"
     t.datetime "created_at", null: false
