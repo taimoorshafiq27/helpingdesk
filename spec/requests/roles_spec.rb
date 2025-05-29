@@ -27,7 +27,7 @@ RSpec.describe "Roles", type: :request do
 
   describe "create" do
     it "saves successfully" do
-      post roles_path(role: attributes_for(:role))
+      post roles_path(params: { role: { name: "Test role", code: "TST" } })
 
       follow_redirect!
 
@@ -37,7 +37,6 @@ RSpec.describe "Roles", type: :request do
 
   describe "show" do
     it "loads successfully" do
-      role = create(:role)
       get role_path(role)
 
       expect(response).to have_http_status(:ok)
@@ -46,7 +45,6 @@ RSpec.describe "Roles", type: :request do
 
   describe "edit" do
     it "loads successfully" do
-      role = create(:role)
       get edit_role_path(role)
 
       expect(response).to have_http_status(:ok)
@@ -55,7 +53,6 @@ RSpec.describe "Roles", type: :request do
 
   describe "update" do
     it "updates successfully" do
-      role = create(:role)
       patch role_path(role, params: { role: { name: "Admin" }} )
 
       follow_redirect!
@@ -64,14 +61,14 @@ RSpec.describe "Roles", type: :request do
     end
   end
 
-  describe "destroy" do
-    it "destroys successfully" do
-      role = create(:role)
-      delete role_path(role)
+  # NOTE: Currently do not have a destroy route. Comment out for now instead of removing
+  # describe "destroy" do
+  #   it "destroys successfully" do
+  #     delete role_path(role)
 
-      follow_redirect!
+  #     follow_redirect!
 
-      expect(response).to have_http_status(:ok)
-    end
-  end
+  #     expect(response).to have_http_status(:ok)
+  #   end
+  # end
 end

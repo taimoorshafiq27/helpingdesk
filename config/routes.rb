@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:index, :show, :edit, :update]
 
-  resources :roles
+  resources :roles, except: [:destroy]
 
   resources :tickets do
     resources :comments, only: [:create]
