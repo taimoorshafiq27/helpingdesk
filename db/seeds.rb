@@ -11,16 +11,18 @@ admin_role = Role.find_or_create_by(name: "Administrator", code: "ADM")
 Role.find_or_create_by(name: "Agent", code: "AGT")
 client_role = Role.find_or_create_by(name: "Client", code: "CLT")
 
-admin_user = User.create!(first_name: "Bob", last_name: "Walker", email: "admin@example.com", password: "password", password_confirmation: "password")
-client_user = User.create!(first_name: "Alice", last_name: "Walker", email: "client@example.com", password: "password", password_confirmation: "password")
+admin_bob_walker = User.create!(first_name: "Bob", last_name: "Walker", email: "admin_bob_walker@example.com", password: "password", password_confirmation: "password")
+client_alice_walker = User.create!(first_name: "Alice", last_name: "Walker", email: "client_alice_walker@example.com", password: "password", password_confirmation: "password")
+client_wesker_aran = User.create!(first_name: "Wesker", last_name: "Aran", email: "wesker_aran@example.com", password: "password", password_confirmation: "password")
 
-admin_user.roles << admin_role
-client_user.roles << client_role
+admin_bob_walker.roles << admin_role
+client_alice_walker.roles << client_role
+client_wesker_aran.roles << client_role
 
 15.times do
   Ticket.create!(
-    assignee: admin_user,
-    client: client_user,
+    assignee: admin_bob_walker,
+    client: [client_alice_walker, client_wesker_aran].sample,
     title: Faker::Book.title,
     description: Faker::Quote.famous_last_words + " " * 15,
     category: :email,

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :roles, except: [:destroy]
 
-  resources :tickets do
+  resources :tickets, except: [:destroy] do
     resources :comments, only: [:create]
   end
 
