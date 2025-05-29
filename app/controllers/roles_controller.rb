@@ -1,6 +1,6 @@
 class RolesController < ApplicationController
   before_action :set_roles, only: [:index]
-  before_action :set_role, only: [:show, :edit, :update, :destroy]
+  before_action :set_role, only: [:show, :edit, :update]
 
   def index
     authorize Role
@@ -38,13 +38,6 @@ class RolesController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
-  end
-
-  def destroy
-    authorize @role
-
-    @role.destroy
-    redirect_to roles_path
   end
 
   private

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :role do
-    name { "Administrator" }
-    code { "ADM" }
+    sequence(:name) { "Administrator" }
+    sequence(:code) { "ADM" }
 
     trait :client do
       name { "Client" }
