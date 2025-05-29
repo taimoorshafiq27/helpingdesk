@@ -49,7 +49,13 @@ class TicketsController < ApplicationController
   private
 
   def set_tickets
-    @pagy, @tickets = pagy(Ticket.all.order(created_at: :desc))
+    @tickets = if current_user.admin? || current_user.agent?
+                 Ticket.all
+               else
+                 Ticket.where(client_id: current_user.id)
+               end
+
+    @pagy, @tickets = pagy(@tickets.order(created_at: :desc))
   end
 
   def set_ticket
