@@ -5,8 +5,9 @@
       <div class="w-3/5 m-auto py-8 px-6 rounded bg-white">
         <div>
           <p class="pb-2 text-3xl"><%= @ticket.title %></p>
-          <p class="pb-12 leading-7 tracking-normal"><%= @ticket.description %></p>
+          <p class="pb-12 leading-7 text-gray-600"><%= @ticket.description %></p>
         </div>
+        <p class="pb-6 text-sm">Client: <%= @ticket.client.full_name %></p>
         <% if current_user.admin? || current_user.agent?  %>
           <%= form_with model: @ticket do |form| %>
             <div class="flex flex-col pb-6">
@@ -18,7 +19,7 @@
             </div>
           <% end %>
         <% else %>
-          <p><%= "Client: #{@ticket.client.first_name} #{@ticket.client.last_name}" %></p>
+          <p><%= "Client: #{@ticket.client.full_name}" %></p>
           <p><%= "Category: #{@ticket.category}" %></p>
           <p><%= "Status: #{@ticket.status}" %></p>
         <% end %>
@@ -28,7 +29,7 @@
           <% @ticket.comments.where.not(id: nil).each do |comment| %>
             <p class="py-1"><%= comment.body %></p>
             <div class="pb-12 text-gray-600 mt-2">
-              <h2 class="pr-1 text-sm">Commenter: <%= "#{comment.user.first_name} #{comment.user.last_name} (#{comment.user.roles.first.name}) "%></h2>
+              <h2 class="pr-1 text-sm">Commenter: <%= "#{comment.user.full_name} (#{comment.user.roles.first.name}) "%></h2>
             </div>
           <% end %>
         </div>

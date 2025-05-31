@@ -36,6 +36,10 @@ class User < ApplicationRecord
     roles.exists?(code: "CLT")
   end
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   private
 
   def administrator?
