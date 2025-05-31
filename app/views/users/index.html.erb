@@ -3,7 +3,7 @@
   <div class="w-full bg-gray-100">
     <%= render ToolbarComponent.new(title: "Users") %>
     <div class="w-3/5 m-auto px-6 rounded bg-white">
-      <div class="py-6">
+      <div class="pt-6 pb-2">
           <% @users.each do |user| %>
             <div class="flex justify-between pb-8">
               <%= "#{user.full_name}" %>

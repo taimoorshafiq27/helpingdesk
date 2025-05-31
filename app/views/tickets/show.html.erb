@@ -5,7 +5,7 @@
       <div class="w-3/5 m-auto py-8 px-6 rounded bg-white">
         <div>
           <p class="pb-2 text-3xl"><%= @ticket.title %></p>
-          <p class="pb-12 leading-7 tracking-normal"><%= @ticket.description %></p>
+          <p class="pb-12 leading-7 text-gray-600"><%= @ticket.description %></p>
         </div>
         <p class="pb-6 text-sm">Client: <%= @ticket.client.full_name %></p>
         <% if current_user.admin? || current_user.agent?  %>

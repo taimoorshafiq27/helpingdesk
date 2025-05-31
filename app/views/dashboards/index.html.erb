@@ -2,13 +2,41 @@
   <%= render MenuComponent.new %>
     <div class="w-full">
         <%= render ToolbarComponent.new(title: "Dashboard") %>
-        <div class="grid grid-cols-3 gap-4 px-24 py-6">
-            <div class="h-64 bg-white">column 1</div>
-            <div class="bg-white">column 2</div>
-            <div class="h-64 bg-white">column 3</div>
-            <div class="bg-white">column 4</div>
-             <div class="bg-white">column 5</div>
-            <div class="bg-white">column 6</div>
+        <div class="w-3/5 m-auto py-4 px-6 rounded bg-white leading-7 text-gray-600 text-justify">
+            <div class="pb-6">
+                <p class="pb-1 text-black">GitHub</p>
+                <p>Please see the GitHub repository for the full development process and code:</p>
+            </div>
+            <div class="pb-6">
+                <p class="pb-1 text-black">Tech stack</p>
+                <p>Ruby on Rails, PostgreSQL, Tailwind CSS</p>
+            </div>
+            <div>
+                <p class="pb-1 text-black">Gems</p>
+                <p>Devise for authentication, Pundit for authorization, RSpec and FactoryBot with Faker for test suite, Pagy for pagination, ViewComponent for light componentisation</p>
+            </div>
+        </div>
+        <div class="w-3/5 m-auto mt-8 py-4 px-6 rounded bg-white leading-7 text-gray-600 text-justify">
+            <div class="pb-2">
+                <p class="pb-1 text-black">Project</p>
+            <ul>
+                <li class="pb-1">Sensible workflows by creating detailed GitHub Issues, followed by creating corresponding feature branches with regular and clear commits, lastly merged with clean PR's (plural words such as "we" and "us" were used in Issue descriptions to simulate a real team of collaborators).
+                <li class="pb-1">The RSpec framework was used to take a TDD approach for model tests, to create request, mailer and policy tests, as well as BDD system tests with Capybara.</li>
+                <li class="pb-1">Role based access control (RBAC) authorization with the pundit gem.</li>
+                <li>Styling the UI with Tailwind CSS so users have an enjoyable experience using the application.</li>
+            </ul>
+            </div>
+        </div>
+        <div class="w-3/5 m-auto mt-8 py-4 px-6 rounded bg-white leading-7 text-gray-600 text-justify">
+            <div class="pb-2">
+                <p class="pb-1 text-black">Future</p>
+            <ul>
+                <li class="pb-1">Ticket search functionality using pg_search gem and turbo.</li>
+                <li class="pb-1">Mailers for when a ticket is commented and for when a ticket is resolved.</li>
+                <li class="pb-1">A lot of code can be abstracted to helpers, variables, methods etc. to achieve DRY principles.</li>
+                <li>Using chartkick gem to show basic trends on this dashboard page.</li>
+            </ul>
+            </div>
         </div>
     </div>
 </div>
