@@ -2,17 +2,17 @@
   <%= render MenuComponent.new %>
     <div class="w-full">
         <%= render ToolbarComponent.new(title: "Dashboard") %>
-        <div class="w-3/5 m-auto py-4 px-6 rounded bg-white leading-7 text-gray-600 text-justify">
+        <div class="w-3/5 m-auto py-4 px-6 rounded bg-white leading-7 text-gray-600">
             <div class="pb-6">
                 <p class="pb-1 text-black">GitHub</p>
-                <p>Please see the GitHub repository for the full development process and code: https://github.com/taimoorshafiq27/helpingdesk</p>
+                <p>Please see the GitHub repository for the full development process and code: https://github.com/taimoorshafiq27/helpingdesk?tab=readme-ov-file#readme</p>
             </div>
-            <div class="pb-6">
+            <div class="pb-6 text-justify">
                 <p class="pb-1 text-black">Tech stack</p>
                 <p>Ruby on Rails, PostgreSQL, Tailwind CSS</p>
             </div>
             <div>
-                <p class="pb-1 text-black">Gems</p>
+                <p class="pb-1 text-black text-justify">Gems</p>
                 <p>Devise for authentication, Pundit for authorization, RSpec and FactoryBot with Faker for test suite, Pagy for pagination, ViewComponent for light componentisation</p>
             </div>
         </div>
