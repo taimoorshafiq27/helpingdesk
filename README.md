@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to HelpingDesk! This application is a simulation of a real IT ticketing system. The application consists of users, different roles such as agent and client tied to users, tickets which is the core of the application and allows users to submit and interact with tickets, and a passing test suite built with RSpec.
 
-Things you may want to cover:
+The live application is found at: https://helpingdesk-595b0eb90691.herokuapp.com/users/sign_in
 
-* Ruby version
+Application login credentials:
 
-* System dependencies
+Admin
+Email: admin_bob_walker@example.com
+Password: password
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+*Client user has limited functionality*
+Client
+Email: client_alice_walker@example.com
+Password: password
