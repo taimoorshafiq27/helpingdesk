@@ -1,5 +1,15 @@
-<p>Welcome <%= @email %>!</p>
+<div style="width: 100%; padding-top: 24px; padding-bottom: 24px; display: flex; justify-content: center; align-items: center; background-color: rgb(2 132 199);">
+    <h1>HelpingDesk</h1>
+</div>
 
-<p>You can confirm your account email through the link below:</p>
+<div style="width: 100%; padding-top: 32px; padding-bottom: 8px; display: flex; justify-content: center; align-items: center;">
+    <p>Welcome <%= @email %>!</p>
+</div>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<div style="width: 100%; padding-top: 8px; padding-bottom: 16px; display: flex; justify-content: center; align-items: center;">
+    <p>You can confirm your account email through the link below:</p>
+</div>
+
+<div style="width: 100%; padding-top: 8px; padding-bottom: 16px; display: flex; justify-content: center; align-items: center;">
+    <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+</div>

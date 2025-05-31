@@ -1,7 +1,15 @@
-<p>Hello <%= @email %>!</p>
+<div style="width: 100%; padding-top: 24px; padding-bottom: 24px; display: flex; justify-content: center; align-items: center; background-color: rgb(2 132 199);">
+    <h1>HelpingDesk</h1>
+</div>
 
-<% if @resource.try(:unconfirmed_email?) %>
-  <p>We're contacting you to notify you that your email is being changed to <%= @resource.unconfirmed_email %>.</p>
-<% else %>
-  <p>We're contacting you to notify you that your email has been changed to <%= @resource.email %>.</p>
-<% end %>
+<div style="width: 100%; padding-top: 32px; padding-bottom: 8px; display: flex; justify-content: center; align-items: center;">
+    <p>Hello <%= @email %>!</p>
+</div>
+
+<div style="width: 100%; padding-top: 8px; padding-bottom: 16px; display: flex; justify-content: center; align-items: center;">
+    <% if @resource.try(:unconfirmed_email?) %>
+      <p>We're contacting you to notify you that your email is being changed to <%= @resource.unconfirmed_email %>.</p>
+    <% else %>
+      <p>We're contacting you to notify you that your email has been changed to <%= @resource.email %>.</p>
+    <% end %>
+</div>
