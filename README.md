@@ -6,11 +6,11 @@ The live application is found at: https://helpingdesk-595b0eb90691.herokuapp.com
 
 Application login credentials:
 
-Admin
-Email: admin_bob_walker@example.com
-Password: password
+**Admin**</br>
+Email: admin_bob_walker@example.com</br>
+Password: password</br>
 
-*Client user has limited functionality*
-Client
-Email: client_alice_walker@example.com
+*Client user has limited functionality*</br>
+**Client**</br>
+Email: client_alice_walker@example.com</br>
 Password: password
